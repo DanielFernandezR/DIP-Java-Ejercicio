@@ -1,15 +1,18 @@
 package org.formacion.di.negocio;
 
-import org.formacion.di.bbdd.InventarioBBDD;
+public class ControladorEstoc implements ApiInventario {
 
-public class ControladorEstoc {
-
-	private final InventarioBBDD inventario;
+	private final ApiInventario inventario;
 	
-	public ControladorEstoc(InventarioBBDD inventario) {
+	public ControladorEstoc(ApiInventario inventario) {
 		this.inventario = inventario;
 	}
 
+	@Override
+	public int numeroProductos(String tienda, String producto) {
+		return inventario.numeroProductos(tienda, producto);
+	}
+	
 	/**
 	 * Nuestros sesudos estudios han descubierto que los clientes compran mas
 	 * productos cuando el nombre de este producto es mas largo
@@ -18,7 +21,7 @@ public class ControladorEstoc {
 	 *    al menos 700 lamparas (lampara: 7 letras)
 	 */
 	public boolean necesitaReponer (String tienda, String producto) {
-		int cantidadActual = inventario.numeroProductos(tienda, producto);
+		int cantidadActual = numeroProductos(tienda, producto);
 		
 		return  cantidadActual < producto.length() * 100;
 	}
