@@ -1,8 +1,6 @@
 package org.formacion.di.bbdd;
 
-import org.formacion.di.negocio.ApiInventario;
-
-public class InventarioBBDD implements ApiInventario {
+public class InventarioBBDD implements Inventario {
 
 	
 	// Metodo de consulta a la base de datos

@@ -8,6 +8,8 @@ public class BBDD {
 	// ----- esta es nuestra "base de datos" -----
 	public static Map<String, Map<String, Integer>> stocs = new HashMap<>();
 	
+	private BBDD() {};
+	
 	static {
 		Map<String, Integer> stocTiendaNorte = new HashMap<>();
 		stocTiendaNorte.put("lampara",600);
